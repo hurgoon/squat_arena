@@ -29,8 +29,7 @@ class WorkoutPage extends GetView<WorkoutController> {
               ).applyConstraint(
                 width: 200,
                 height: Get.height * 0.8,
-                centerLeftTo: box0.leftMargin(20),
-                left: box0.left.margin(20),
+                centerRightTo: box0.rightMargin(40),
               ),
             ),
         ],

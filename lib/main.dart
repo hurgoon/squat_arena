@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:squat_arena/pages/flame_page.dart';
+import 'package:squat_arena/pages/flame_page2.dart';
+import 'package:squat_arena/pages/note_page.dart';
 import 'package:squat_arena/pages/workout_page.dart';
 import 'package:squat_arena/bindings/WorkoutBinding.dart';
 
@@ -23,6 +26,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue),
       getPages: [
         GetPage(name: '/workout', page: () => WorkoutPage(), bindings: [WorkoutBinding()]),
+        GetPage(name: '/note', page: () => NotePage()),
+        GetPage(name: '/flame', page: () => FlamePage()),
+        GetPage(name: '/flame2', page: () => FlamePage2()),
       ],
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -39,8 +45,12 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: const Center(
-        child: Text('SQUAT ARENA'),
+      body: Column(
+        children: [
+          TextButton(onPressed: () => Get.toNamed('/note'), child: Text('NOTE TEST PAGE')),
+          TextButton(onPressed: () => Get.toNamed('/flame'), child: Text('Flame TEST PAGE')),
+          TextButton(onPressed: () => Get.toNamed('/flame2'), child: Text('Flame2 TEST PAGE')),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Get.toNamed('/workout'),
